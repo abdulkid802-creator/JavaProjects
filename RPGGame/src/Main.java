@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args){
 
-        Player player = new Player("Abdul");
+        Player player = new Player("Abdul"); // Change to whatever you want your player to be called
         Item item = new Item("Health Potion", "Potion", 30);
         Item item1 = new Item("Iron Sword", "Weapon", 10);
 
