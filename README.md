@@ -31,5 +31,5 @@ A fully featured text-based, turn-based RPG built from scratch in Java.
 
 ## 👤 Author
 
-**Abdul Raqeeb Lafiaji** — Computing Student @ TU Dublin  
+**Abdul** — Computing Student @ TU Dublin  
 [GitHub Profile](https://github.com/abdulkid802-creator)
