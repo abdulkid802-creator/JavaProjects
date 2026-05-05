@@ -23,6 +23,11 @@ public class BattleEngine {
         while (player.isAlive() && enemy.isAlive() && !playerRun) {
 
             playerTurn();
+
+            if (player.cooldown > 0){
+                player.cooldown -= 1;
+            }
+
             enemyTurn();
         }
 
@@ -77,12 +82,19 @@ public class BattleEngine {
 
         System.out.println("1. Attack");
         System.out.println("2. Use Items");
-        System.out.println("3. Exit");
+        System.out.println("3. Special Ability");
+        System.out.println("4. Exit");
         System.out.print("Enter your choice: ");
         choice = scanner.nextInt();
         System.out.println();
         switch (choice){
-            case 1 -> player.attack(enemy);
+            case 1 -> {
+                boolean hit = player.attack(enemy);
+                if (!hit){
+                    System.out.println("Counter-attack!");
+                    enemy.attack(player);
+                }
+            }
             case 2 -> {
                 if (player.inventory.items.isEmpty()){
                     System.out.println("You have no items right now!");
@@ -103,6 +115,9 @@ public class BattleEngine {
                 }
             }
             case 3 -> {
+                player.specialAbility("Power strike", enemy);
+            }
+            case 4 -> {
                 playerRun = true;
                 System.out.println("You ran away");
             }

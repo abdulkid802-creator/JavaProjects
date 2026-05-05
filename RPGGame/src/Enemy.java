@@ -1,19 +1,30 @@
-public class Enemy extends Character{
+    public class Enemy extends Character{
 
-    int xpReward;
+        int xpReward;
+        int turnCount = 0;
+        boolean isBoss = false;
 
-    Enemy(String name, int currentHP, int maxHP, int attackPower, int defence, int xpReward){
-        super(name, currentHP, maxHP, attackPower,defence);
-        this.xpReward = xpReward;
+        Enemy(String name, int currentHP, int maxHP, int attackPower, int defence, int xpReward){
+            super(name, currentHP, maxHP, attackPower,defence);
+            this.xpReward = xpReward;
+        }
+
+        @Override
+        boolean attack(Character target){
+            System.out.println(name + " is attacking " + target.name);
+
+            if (isBoss && turnCount % 2 == 0){
+                System.out.println("💀Boss Special Move!");
+                target.takeDamage(attackPower * 2);
+            }
+            else {
+                target.takeDamage(attackPower);
+            }
+            turnCount += 1;
+            return true;
+        }
+
+        void randomAttack(){
+
+        }
     }
-
-    @Override
-    void attack(Character target){
-        System.out.println(name + " is attacking " + target.name);
-        target.takeDamage(attackPower);
-    }
-
-    void randomAttack(){
-
-    }
-}

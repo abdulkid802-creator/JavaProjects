@@ -1,18 +1,48 @@
+import java.util.Random;
+
 public class Player extends Character{
 
     Inventory inventory = new Inventory();
 
+    Random rand = new Random();
+
     int level = 1;
     int exp = 0;
+    int cooldown = 0;
 
     Player(String name ){
         super(name, 100, 100, 20,5);
     }
 
     @Override
-    void attack(Character target){
+    boolean attack(Character target){
         System.out.println(name + " is attacking " + target.name);
-        target.takeDamage(attackPower);
+        int roll = rand.nextInt(6);
+
+        if (roll == 0){
+            System.out.println("Critical hit!");
+            target.takeDamage(attackPower * 2);
+            return true;
+        }
+        else if (roll == 1){
+            System.out.println("You missed your attack! ");
+            return false;
+        }
+        else {
+            target.takeDamage(attackPower);
+        }
+        return true;
+    }
+
+    void specialAbility(String ability, Character target){
+        if (cooldown == 0){
+            System.out.println("Power Strike");
+            target.takeDamage(attackPower * 3);
+            cooldown += 2;
+        }
+        else {
+            System.out.println("Skill on cooldown " + cooldown + " turn remaining");
+        }
     }
 
     void gainExp(int amount){

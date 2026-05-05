@@ -14,7 +14,17 @@ public class Main {
 
         while (player.isAlive()){
             System.out.println("-".repeat(10) + " Round " + round + " " +"-".repeat(10));
-            Enemy enemy = new Enemy(enemyName[(round - 1) % enemyName.length], round * 80, round * 80,  round * 15,  round * 3, round * 50);
+
+            Enemy enemy;
+
+            if (round % 5 == 0){
+                enemy = new Enemy(enemyName[(round - 1) % enemyName.length], round * 150, round * 150,  round * 25,  round * 10, round * 100);
+                enemy.isBoss = true;
+            }
+            else {
+                enemy = new Enemy(enemyName[(round - 1) % enemyName.length], round * 80, round * 80,  round * 15,  round * 3, round * 50);
+            }
+
             BattleEngine battleEngine1 = new BattleEngine(player, enemy);
             battleEngine1.start();
 

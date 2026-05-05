@@ -25,5 +25,5 @@ public abstract class Character {
         return currentHP > 0;
     }
 
-    abstract void attack(Character target);
+    abstract boolean attack(Character target);
 }
