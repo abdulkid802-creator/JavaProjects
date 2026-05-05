@@ -111,6 +111,6 @@ RPGGame/
 
 ## 👤 Author
 
-**Abdul Raqeeb Lafiaji**  
+**Abdul**  
 Computing Student @ TU Dublin  
 [GitHub](https://github.com/abdulkid802-creator)
