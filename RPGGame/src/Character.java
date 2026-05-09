@@ -5,6 +5,9 @@ public abstract class Character {
     protected int maxHp;
     protected int attackPower;
     protected int defence;
+    protected int poisonTurns = 0;
+    protected boolean isStunned = false;
+    protected int burnTurns = 0;
 
     Character(String name, int currentHP, int maxHP, int attackPower, int defence){
         this.name = name;
@@ -23,6 +26,24 @@ public abstract class Character {
 
     boolean isAlive(){
         return currentHP > 0;
+    }
+
+    void applyStatusEffects(){
+
+        if (poisonTurns > 0){
+            currentHP -= 5;
+            System.out.println(name + " is Poisoned! (-5 HP)");
+            poisonTurns -= 1;
+        }
+        if (burnTurns > 0){
+            currentHP -= 8;
+            defence -= 1;
+            System.out.println(name + " is Burned! (-8 HP & -1 DEFENCE)");
+            burnTurns -= 1;
+        }
+        if (isStunned){
+            System.out.println("You are stun");
+        }
     }
 
     abstract boolean attack(Character target);

@@ -1,14 +1,16 @@
 import java.util.Random;
 
-public class Player extends Character{
+public abstract class Player extends Character{
 
     Inventory inventory = new Inventory();
 
     Random rand = new Random();
 
+    int coins = 0;
     int level = 1;
     int exp = 0;
     int cooldown = 0;
+    boolean nextAttackPoisons = false;
 
     Player(String name ){
         super(name, 100, 100, 20,5);
@@ -17,11 +19,17 @@ public class Player extends Character{
     @Override
     boolean attack(Character target){
         System.out.println(name + " is attacking " + target.name);
-        int roll = rand.nextInt(6);
+        int roll = rand.nextInt(10);
+
 
         if (roll == 0){
             System.out.println("Critical hit!");
             target.takeDamage(attackPower * 2);
+            if (nextAttackPoisons) {
+                target.poisonTurns = 3;
+                System.out.println("Target is poisoned!");
+                nextAttackPoisons = false;
+            }
             return true;
         }
         else if (roll == 1){
@@ -29,26 +37,35 @@ public class Player extends Character{
             return false;
         }
         else {
+
+            if (nextAttackPoisons) {
+                target.poisonTurns = 3;
+                System.out.println("Target is poisoned!");
+                nextAttackPoisons = false;
+            }
             target.takeDamage(attackPower);
         }
+
+
         return true;
+
+
+
+
+
     }
 
-    void specialAbility(String ability, Character target){
-        if (cooldown == 0){
-            System.out.println("Power Strike");
-            target.takeDamage(attackPower * 3);
-            cooldown += 2;
-        }
-        else {
-            System.out.println("Skill on cooldown " + cooldown + " turn remaining");
-        }
-    }
+    abstract boolean specialAbility(Character target);
 
     void gainExp(int amount){
         exp += amount;
         System.out.println("You gain " + amount + " of exp | Total exp is: " + exp);
         levelUp();
+    }
+
+    void gainCoin(int amount){
+        coins += amount;
+        System.out.println("You gain " + amount + " of coins | Total coin is: " + coins);
     }
 
     void levelUp(){
