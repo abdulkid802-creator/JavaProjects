@@ -65,8 +65,10 @@ At the start you enter your name and pick a class. Each class plays differently.
 - Spend coins earned from enemies
 
 ### 💾 Save/Load
-- Game auto-saves after each round
-- Load your save at the start of a new session
+- Game auto-saves after each round win
+- Saves player name, level, XP, coins, HP, attack, defence, round and full inventory
+- Load your save at the start of a new session to continue where you left off
+- Items are fully restored on load — potions, weapons, class-specific items all saved
 
 ### 🏃 Escape
 - Run from battle without taking a free hit
