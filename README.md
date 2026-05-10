@@ -1,94 +1,54 @@
-[README1.md](https://github.com/user-attachments/files/27379003/README1.md)
-# ⚔️ Java RPG Battle Game
+# ☕ Java Projects
 
-A text-based, turn-based RPG battle game built in Java. Fight through endless waves of scaling enemies, level up your character, collect items, and see how far you can go.
-
-Built from scratch as a Java OOP learning project — every class, mechanic, and system was designed and written by hand.
+A collection of Java projects built while learning the language at TU Dublin. Each project focuses on core Java concepts — OOP, data structures, algorithms, and real game/application logic.
 
 ---
 
-## 🎮 Gameplay
+## 🕹️ RPG Battle Game
 
-- Choose to **Attack**, **Use Items**, or **Run** each turn
-- Enemies scale in difficulty every round — more HP, higher attack
-- Defeat enemies to gain **XP** and **level up**
-- Random **item drops** after each victory
-- Survive as many rounds as possible
+A fully featured text-based, turn-based RPG built from scratch in Java. Pick a class, fight through waves of scaling enemies, level up, collect loot, and survive brutal boss battles every 5 rounds.
 
----
+**Features:**
+- 3 playable classes — Warrior, Mage, Archer — each with unique stats and abilities
+- Critical hits, miss mechanic, and enemy counter-attacks
+- Status effects — poison, burn, stun
+- Boss battles every 5 rounds with special moves
+- 10+ item types with class-specific drops
+- Shop system with class-specific items
+- XP, levelling, and coin system
+- Save/load system — full inventory and stats persisted to file
 
-## ✅ Features
+**Concepts used:** Abstract classes, inheritance, polymorphism, ArrayLists, File I/O, Scanner, Switch expressions, Recursion
 
-- Turn-based combat with player choice menu
-- HP and level display updated every turn
-- Defence stat that reduces incoming damage
-- XP system with automatic level up (every `level × 50` XP)
-- Stats increase on level up (attack, defence, max HP)
-- Full heal between rounds
-- 10 unique enemy names that cycle and scale per round
-- 4 item types: Health Potion, Elixir, Iron Sword, Shield
-- Random item drops after winning a battle
-- Inventory system — view, select, and consume items mid-battle
-- Proper run mechanic — escape without the enemy getting a free hit
-- Game over on death or escape
+📁 [View Project](./RPGGame)
 
 ---
 
-## 🗂️ Project Structure
+## 🏦 Bank Account Management System
 
-```
-RPGGame/
-└── src/
-    ├── Main.java           # Entry point — sets up player, items, and round loop
-    ├── Character.java      # Abstract base class for all characters
-    ├── Player.java         # Extends Character — has level, XP, inventory
-    ├── Enemy.java          # Extends Character — has XP reward, random attacks
-    ├── Item.java           # Item data and use() logic (potions, weapons, shields)
-    ├── Inventory.java      # ArrayList-based inventory with add/remove/display
-    └── BattleEngine.java   # Core battle loop — turn management, drops, win/lose
-```
+A console-based bank management system with savings and current accounts, deposits, withdrawals, transfers and interest.
 
----
+**Features:**
+- Create savings and current accounts
+- Deposit, withdraw, and transfer between accounts
+- Overdraft protection on current accounts (£500 limit)
+- 3% interest system for savings accounts
+- View single account or all accounts
+- Error handling throughout
 
-## ▶️ How to Run
+**Concepts used:** Abstract classes, inheritance, polymorphism, ArrayLists, Scanner
 
-**Requirements:** Java JDK 11 or above
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/java-rpg-battle-game.git
-   ```
-
-2. Navigate to the project folder and compile:
-   ```bash
-   cd java-rpg-battle-game/src
-   javac *.java
-   ```
-
-3. Run the game:
-   ```bash
-   java Main
-   ```
+📁 [View Project](./BankSystem)
 
 ---
 
-## 🧠 Java Concepts Practised
+## 🛠️ Tech Stack
 
-- **Abstract classes and methods** — `Character` as a base with enforced `attack()` override
-- **Inheritance** — `Player` and `Enemy` extending `Character`
-- **Encapsulation** — `protected` fields accessible to subclasses, `private` fields with getters
-- **Method overriding** with `@Override`
-- **ArrayLists** — dynamic inventory management
-- **Scanner** — reading user input from the console
-- **Random** — enemy power attacks and item drops
-- **`Math.max()` / `Math.min()`** — clamping HP and damage values
-- **Switch expressions** — clean menu handling
-- **Modulo operator** — cycling enemy names across rounds
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white)
 
 ---
 
 ## 👤 Author
 
-**Abdul**  
-Computing Student @ TU Dublin  
-[GitHub](https://github.com/YOUR_USERNAME)
+**Abdul** — Computing Student @ TU Dublin
+[GitHub Profile](https://github.com/abdulkid802-creator)
